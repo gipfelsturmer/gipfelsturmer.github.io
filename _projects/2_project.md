@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image
-img: assets/img/3.jpg
+title: Aktuelle Verhältnisse
+description:
+img: assets/img/allalinhorn.jpg
 importance: 2
-category: work
+category:
 ---
 
 Every project has a beautiful feature showcase page.
