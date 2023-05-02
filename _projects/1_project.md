@@ -7,11 +7,10 @@ importance: 1
 category:
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+In der Gipfelstürmer-App kann die Kategorie "Berg-Schwierigkeit bewerten" bereits verwendet werden.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+Für jeden Berg können Bergsteiger die Berg-Schwierigkeit nach bestimmten Kategorien bewerten. Die Kategorien sind zum Beispiel: Gesamtschwierigkeit, Kletterschwierigkeit, Gletscherschwierigkeit, usw.
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -22,6 +21,6 @@ To give your project a background in the portfolio page, just add the img tag to
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Screenshot aus der Kategorie "Berg Schwierigkeit bewerten" in der Gipfelstürmer App.
 </div>
 
