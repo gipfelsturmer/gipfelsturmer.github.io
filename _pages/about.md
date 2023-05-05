@@ -26,7 +26,7 @@ Die Gipfelstürmer App ist noch in der Entwicklung. Aktuell haben wir die 4000er
     <div class="col-sm-3 mt-3 mt-md-0">
         {% include figure.html path="assets/img/QR_code.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
         <div class="caption">
-          Link zur Gipfelstürmer App.
+            <a href="https://link-to.app/gipfelstuermer">Link zur Gipfelstürmer App.</a>
       </div>
     </div>
 </div>

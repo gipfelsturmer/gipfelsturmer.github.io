@@ -7,6 +7,8 @@ importance: 3
 category:
 ---
 
+In Planung und Bearbeitung.
+
 Dieses Projekt soll eine Übersichtseite zum Finden und Vergleichen von Bergführern sein. Für jeden Berg wird es mehrere Bergschulen geben, die ihre Angebote hier veröffentlichen. 
 
 Aktuell werden nur die wichtigsten Kriterien dargestellt (Dauer, Hütte inklusiv, Guide staatlich geprüft und Kosten).
