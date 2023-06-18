@@ -1,19 +1,29 @@
 ---
 layout: page
-title: Aktuelle Verhältnisse
+title: Bergführer finden
 description:
-img: assets/img/allalinhorn.jpg
-importance: 2
+img: assets/img/punta_baretti.jpg
+importance: 3
 category:
 ---
 
 In Planung und Bearbeitung.
 
-Die Kategorie "Aktuelle Verhältnisse" sammelt die aktuellen Bedingungen auf dem Berg. Die Verhältnisse werden von Bergsteigern berichtet, die auf dem Berg waren.
+Dieses Projekt soll eine Übersichtseite zum Finden und Vergleichen von Bergführern sein. Für jeden Berg wird es mehrere Bergschulen geben, die ihre Angebote hier veröffentlichen. 
 
-Dadurch können die Verhältnisse immer auf dem neusten Stand sein.
+Aktuell werden nur die wichtigsten Kriterien dargestellt (Dauer, Hütte inklusiv, Guide staatlich geprüft und Kosten).
 
-Zusätzlich ist ein neues Feature in Planung: Die Hütten bekommen einen besonderen Stellenwert beim Berichten der aktuellen Verhältnisse.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/Dufourspitze_Bergführer.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/punta_baretti.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Screenshot aus der Kategorie "Bergführer finden" in der Gipfelstürmer App.
+</div>
 
-Insgesamt werden die aktuellen Verhältnisse also von Bergsteigern und von der Hütte gesammelt und übersichtlich dargestellt.
+
 

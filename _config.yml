@@ -110,7 +110,7 @@ contact_note: >
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
-google_analytics:  # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
+google_analytics: G-RB1NLHHYCY # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
 panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
 
 google_site_verification: jC_ysS_EqWK1V5RQKXMac8qLFCrxIXV0ImYaQBZHe84 # your google-site-verification ID (Google Search Console)
@@ -348,7 +348,7 @@ jekyll-diagrams:
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics:    false  # enables google analytics
+enable_google_analytics:    true  # enables google analytics
 enable_panelbear_analytics: false  # enables panelbear analytics
 enable_google_verification: true  # enables google site verification
 enable_bing_verification:   false  # enables bing site verification
