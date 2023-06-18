@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bergführer finden | Gipfelstürmer</title>
+    <title>Bergführer hinzufügen | Gipfelstürmer</title>
     <meta name="author" content="Gipfelstürmer  ">
     <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 ">
@@ -119,58 +119,129 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">Bergführer finden</h1>
+            <h1 class="post-title">Bergführer hinzufügen</h1>
             <p class="post-description"></p>
           </header>
 
           <article>
-            <p>In Planung und Bearbeitung.</p>
+            
 
-<p>Dieses Projekt soll eine Übersichtseite zum Finden und Vergleichen von Bergführern sein. Für jeden Berg wird es mehrere Bergschulen geben, die ihre Angebote hier veröffentlichen.</p>
+  <title>Bergführer hinzufügen</title>
 
-<p>Aktuell werden nur die wichtigsten Kriterien dargestellt (Dauer, Hütte inklusiv, Guide staatlich geprüft und Kosten).</p>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
+  <h2></h2>
+  <form id="create-form">
+    <label for="mountain-name">Berg Name:</label>
+    <input type="text" id="mountain-name" required="">
+    <br><br>
+    <label for="guide-name">Name Bergschule / Bergführer:</label>
+    <input type="text" id="guide-name" required="">
+    <br><br>
+    <label for="cost-one">Preis für 1 Person:</label>
+    <input type="number" id="cost-one" required="">
+    <br><br>
+    <label for="cost-two">Preis für 2 Personen:</label>
+    <input type="number" id="cost-two" required="">
+    <br><br>
+    <label for="cost-three">Preis für 3 Personen:</label>
+    <input type="number" id="cost-three" required="">
+    <br><br>
+    <label for="cost-four">Preis für 4 Personen:</label>
+    <input type="number" id="cost-four" required="">
+    <br><br>
+    <label for="num-days">Wie viele Tage?:</label>
+    <input type="number" id="num-days" required="">
+    <br><br>
+    <label for="hut">Hütte inklusive:</label>
+    <input type="checkbox" id="hut">
+    <br><br>
+    <label for="certified">Staatlich geprüfter Bergführer:</label>
+    <input type="checkbox" id="certified">
+    <br><br>
+    <label for="url">Website link (URL):</label>
+    <input type="text" id="url" required="">
+    <br><br>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Dufourspitze_Bergf%C3%BChrer-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Dufourspitze_Bergf%C3%BChrer-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Dufourspitze_Bergf%C3%BChrer-1400.webp"></source>
-    
+    <button type="submit">Bergführer hinzufügen</button>
+  </form>
+  
+  <!-- Firebase SDK -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/Dufourspitze_Bergf%C3%BChrer.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  <script type="module">
+    const firebaseConfig = {
+        apiKey: "AIzaSyCBN7n7N-vKM1tJQ-OInnzotS3RShVOrXs",
+        authDomain: "gipfelstuermer-6b1ca.firebaseapp.com",
+        projectId: "gipfelstuermer-6b1ca",
+        storageBucket: "gipfelstuermer-6b1ca.appspot.com",
+        messagingSenderId: "475301182415",
+        appId: "1:475301182415:web:56dc41f911c467771070ba",
+        measurementId: "G-RB1NLHHYCY"
+    };
 
-  </picture>
+    firebase.initializeApp(firebaseConfig);
+    // console.log("Successfully initialized Firebase");
+    // Get a reference to the Firestore database
+    var db = firebase.firestore();
 
-</figure>
+    // Function to handle form submission
+    document.getElementById("create-form").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
+      // Get the user's input values
+      var elementName = document.getElementById("mountain-name").value;
+      var guideName = document.getElementById("guide-name").value;
+      var costOne = parseInt(document.getElementById("cost-one").value);
+      var costTwo = parseInt(document.getElementById("cost-two").value);
+      var costThree = parseInt(document.getElementById("cost-three").value);
+      var costFour = parseInt(document.getElementById("cost-four").value);
+      var numDays = parseInt(document.getElementById("num-days").value);
+      var hut = document.getElementById("hut").checked;
+      var certified = document.getElementById("certified").checked;
+      var url = document.getElementById("url").value;
+      
+      var name_id = elementName.toLowerCase().replace(/\s/g, '_');
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/punta_baretti-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/punta_baretti-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/punta_baretti-1400.webp"></source>
-    
+      // Set the data for the document
+      db.collection('mountains_bergfuehrer').doc(name_id).set(
+        {normalroute: 
+          {
+          name: elementName,
+          mountain_id: name_id,
+          route_id: "normalroute",
+          glacier_average_difficulty: 3,
+          climbing_average_difficulty: 3,
+          overall_average_difficulty: 3,
+          description: " ",
+          mountain_guides: firebase.firestore.FieldValue.arrayUnion(
+            {
+              name: guideName,
+              price_one_person: costOne,
+              price_two_person: costTwo,
+              price_three_person: costThree,
+              price_four_person: costFour,
+              days: numDays,
+              hut: hut,
+              certified: certified,
+              url: url
+            })
+          }
+      },
+      { merge: true }
+      )
+      .then(function() {
+        // console.log("Document successfully written!");
+        alert("Bergführer erfolgreich hinzugefügt!");
+        // Reset form inputs after successful submission
+        document.getElementById("create-form").reset();
+      })
+      .catch(function(error) {
+        console.error("Error writing document: ", error);
+      });
+    });
+  </script>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/punta_baretti.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    Screenshot aus der Kategorie "Bergführer finden" in der Gipfelstürmer App.
-</div>
 
 
           </article>
@@ -223,7 +294,14 @@
   <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
   <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
-    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RB1NLHHYCY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RB1NLHHYCY');
+  </script>
     
 
 <!-- Scrolling Progress Bar -->
