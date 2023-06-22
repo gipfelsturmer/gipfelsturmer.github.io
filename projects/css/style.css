@@ -1,0 +1,63 @@
+.mountain-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 40px;
+  padding: 10px;
+  border: none;
+  border-bottom: 5px solid #ccc;
+}
+
+.mountain-name {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px; /* Increase the font size as desired */
+  font-weight: bold; /* Make the text bold */
+}
+
+.offer-container-wrapper {
+  overflow-x: auto;
+  margin: 0;
+}
+
+.offer-container {
+  display: flex;
+  /*justify-content: flex-start;*/ /* Change from space-between to flex-start */
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 10px; /* Add padding to the offer container if needed */
+  overflow-x: scroll; /* Add overflow-x: scroll to enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enable snapping to each offer */
+  -webkit-overflow-scrolling: touch; /* Optional: Enable smooth scrolling on iOS */
+}
+
+.offer {
+  /*width: 200px;*/
+  flex: 0 0 calc(50% - 20px); /* Adjust the percentage value as needed */
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  scroll-snap-align: start; /* Snap each offer to the start of the viewport */
+  background-color: #d3e8f5;
+}
+
+.offer p {
+  color: #666;
+}
+
+.offer button {
+  background-color: lightblue;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.offer button:hover {
+  background-color: dodgerblue;
+}
+
+
