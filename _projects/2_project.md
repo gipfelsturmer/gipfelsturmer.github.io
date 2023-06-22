@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bergführer finden
+title: Bergführer Idee
 description:
 img: assets/img/punta_baretti.jpg
 importance: 3

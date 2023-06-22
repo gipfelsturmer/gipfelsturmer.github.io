@@ -3,7 +3,7 @@ layout: page
 title: Berg-Schwierigkeit bewerten
 description:
 img: assets/img/matterhorn.jpg
-importance: 1
+importance: 4
 category:
 ---
 
