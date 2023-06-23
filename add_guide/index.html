@@ -17,9 +17,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Berg-Schwierigkeit bewerten | Gipfelstürmer</title>
+    <title>Guide hinzufügen | Gipfelstürmer</title>
     <meta name="author" content="Gipfelstürmer  ">
-    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+    <meta name="description" content="Website zum Finden eines passenden Bergführers
 ">
     <meta name="keywords" content="4000er, Gletscher, Berge, Alpen, Bergführer">
 
@@ -43,7 +43,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://gipfelsturmer.github.io/projects/1_project/">
+    <link rel="canonical" href="https://gipfelsturmer.github.io/add_guide/">
 
     <!-- Dark Mode -->
     
@@ -88,7 +88,13 @@
 
               <!-- Other pages -->
               <li class="nav-item ">
-                <a class="nav-link" href="/projects/">projects</a>
+                <a class="nav-link" href="/find_guide/">Guide finden</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/add_guide/">Guide hinzufügen<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/app/">App</a>
               </li>
 
               <!-- Toogle theme mode -->
@@ -119,56 +125,62 @@
         <div class="post">
 
           <header class="post-header">
-            <h1 class="post-title">Berg-Schwierigkeit bewerten</h1>
+            <h1 class="post-title">Guide hinzufügen</h1>
             <p class="post-description"></p>
           </header>
 
           <article>
-            <p>In der Gipfelstürmer-App kann die Kategorie “Berg-Schwierigkeit bewerten” bereits verwendet werden.</p>
+            
 
-<p>Für jeden Berg können Bergsteiger die Berg-Schwierigkeit nach bestimmten Kategorien bewerten. Die Kategorien sind zum Beispiel: Gesamtschwierigkeit, Kletterschwierigkeit, Gletscherschwierigkeit, usw.</p>
+  <title>Bergführer hinzufügen</title>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Dufourspitze_Gesamt%C3%BCbersicht-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Dufourspitze_Gesamt%C3%BCbersicht-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Dufourspitze_Gesamt%C3%BCbersicht-1400.webp"></source>
-    
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/Dufourspitze_Gesamt%C3%BCbersicht.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  <script type="text/javascript" src="../projects/js/functions.js"></script>
+  
+  <h2></h2>
+  <form id="create-form">
+    <label for="mountain-name">Berg Name:</label>
+    <input type="text" id="mountain-name" required="">
+    <br><br>
+    <label for="guide-name">Name Bergschule / Bergführer:</label>
+    <input type="text" id="guide-name" required="">
+    <br><br>
+    <label for="cost-one">Preis für 1 Person:</label>
+    <input type="number" id="cost-one" required="">
+    <br><br>
+    <label for="cost-two">Preis für 2 Personen:</label>
+    <input type="number" id="cost-two" required="">
+    <br><br>
+    <label for="cost-three">Preis für 3 Personen:</label>
+    <input type="number" id="cost-three" required="">
+    <br><br>
+    <label for="cost-four">Preis für 4 Personen:</label>
+    <input type="number" id="cost-four" required="">
+    <br><br>
+    <label for="num-days">Wie viele Tage?:</label>
+    <input type="number" id="num-days" required="">
+    <br><br>
+    <label for="hut">Hütte inklusive:</label>
+    <input type="checkbox" id="hut">
+    <br><br>
+    <label for="certified">Staatlich geprüfter Bergführer:</label>
+    <input type="checkbox" id="certified">
+    <br><br>
+    <label for="url">Website link (URL):</label>
+    <input type="text" id="url" required="">
+    <br><br>
 
-  </picture>
+    <button type="submit" onclick="uploadMountainGuide()">Bergführer hinzufügen</button>
+  </form>
+  
+  <!-- Firebase SDK -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
 
-</figure>
+  <script type="module" src="../projects/js/firebase.js"></script>
 
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
 
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/Dufourspitze_Bewertung_abgeben-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/Dufourspitze_Bewertung_abgeben-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/Dufourspitze_Bewertung_abgeben-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/Dufourspitze_Bewertung_abgeben.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    Screenshot aus der Kategorie "Berg Schwierigkeit bewerten" in der Gipfelstürmer App.
-</div>
 
 
           </article>
