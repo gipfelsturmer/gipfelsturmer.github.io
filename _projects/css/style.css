@@ -47,6 +47,11 @@
   color: #666;
 }
 
+.offer .guide-name {
+  font-weight: bold;
+  font-size: 18px; /* Increase the font size as desired */
+}
+
 .offer button {
   background-color: lightblue;
   border: none;
@@ -54,6 +59,7 @@
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
+  margin-right: 8px;
 }
 
 .offer button:hover {

@@ -87,6 +87,7 @@ function getAndDisplayData() {
 
           var guideName = document.createElement('p');
           guideName.textContent = guide.name;
+          guideName.classList.add('guide-name');
           offer.appendChild(guideName);
 
           if (guide.price_one_person !== -1) {
@@ -121,12 +122,22 @@ function getAndDisplayData() {
           certified.textContent = 'Bergführer staatlich geprüft: ' + (guide.certified ? 'Ja' : 'Nein');
           offer.appendChild(certified);
 
+          var detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Details';
+            detailsButton.style.backgroundColor = 'lightblue';
+            detailsButton.addEventListener('click', function() {
+              // Redirect to the offer.html page passing any necessary information
+              window.location.href = 'offer.html';
+            });
+            offer.appendChild(detailsButton);
+
           var urlButton = document.createElement('button');
           urlButton.textContent = 'Buchen';
           urlButton.style.backgroundColor = 'lightblue';
           urlButton.addEventListener('click', function() {
             window.open(guide.url, '_blank');
           });
+
           offer.appendChild(urlButton);
 
           offerContainer.appendChild(offer);
