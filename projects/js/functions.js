@@ -15,7 +15,6 @@ function uploadMountainGuide() {
       var costFour = parseInt(document.getElementById("cost-four").value);
       var numDays = parseInt(document.getElementById("num-days").value);
       var hut = document.getElementById("hut").checked;
-      var certified = document.getElementById("certified").checked;
       var url = document.getElementById("url").value;
       
       var name_id = elementName.toLowerCase().replace(/\s/g, '_');
@@ -40,7 +39,6 @@ function uploadMountainGuide() {
               price_four_person: costFour,
               days: numDays,
               hut: hut,
-              certified: certified,
               url: url
             })
           }
@@ -118,9 +116,6 @@ function getAndDisplayData() {
           hutIncluded.textContent = 'Hütte inklusive: ' + (guide.hut ? 'Ja' : 'Nein');
           offer.appendChild(hutIncluded);
 
-          var certified = document.createElement('p');
-          certified.textContent = 'Bergführer staatlich geprüft: ' + (guide.certified ? 'Ja' : 'Nein');
-          offer.appendChild(certified);
 
           var detailsButton = document.createElement('button');
             detailsButton.textContent = 'Details';

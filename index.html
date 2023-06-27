@@ -78,23 +78,19 @@
 
               <!-- About -->
               <li class="nav-item active">
-                <a class="nav-link" href="/">about<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Guide finden<span class="sr-only">(current)</span></a>
               </li>
               
-              <!-- Blog -->
-              <li class="nav-item ">
-                <a class="nav-link" href="/blog/">blog</a>
-              </li>
 
               <!-- Other pages -->
-              <li class="nav-item ">
-                <a class="nav-link" href="/find_guide/">Guide finden</a>
-              </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/add_guide/">Guide hinzufügen</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link" href="/app/">App</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/about/">about</a>
               </li>
 
               <!-- Toogle theme mode -->
@@ -131,64 +127,41 @@
         </header>
 
         <article>
-          <div class="profile float-right">
-
-              <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/prof_pic_app-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/prof_pic_app-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/prof_pic_app-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/prof_pic_app.jpg" class="img-fluid z-depth-1 rounded-circle" width="auto" height="auto" alt="prof_pic_app.jpg" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-          </div>
+          
 
           <div class="clearfix">
             
 
-  <!--link rel="stylesheet" type="text/css" href="styles.css"-->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      /*background-color: #f2f2f2;*/
-      color: #333;
-    }
+  <title>Bergführer finden</title>
+  <link rel="stylesheet" type="text/css" href="../projects/css/style.css">
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+<script type="text/javascript" src="../projects/js/functions.js"></script>
 
-    p {
-      font-size: 18px;
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-  </style>
+  	<script type="text/javascript">
+        window.addEventListener("load", function() {
+            getAndDisplayData();
+        });
+    </script>
 
+  <input type="text" id="filter-input" placeholder="Nach Berg suchen...">
 
-  <div class="container">
-
-    <p>Finde den perfekten Bergführer für dich auf Gipfelstürmer!</p>
-
-    <p>Entdecke unsere große Auswahl an Bergen, Bergführern und Bergschulen. Egal ob du Anfänger oder erfahrener Bergsteiger bist, wir haben den passenden Guide für dich.</p>
-
-    <p>Die Suche nach dem passenden Bergführer war noch nie einfacher.</p>
-    
-    <p>Du kannst die Profile der Bergführer einsehen, ihre Erfahrungen und Qualifikationen prüfen und sogar Bewertungen anderer Nutzer lesen. Auf diese Weise kannst du sicherstellen, dass du den perfekten Partner für dein Bergabenteuer findest.</p>
-
-    <p>Bereite dich auf dein nächstes Abenteuer vor und starte deine Suche auf Gipfelstürmer!</p>
+  <div id="mountain-container">
+    <div class="offer-container-wrapper">
+      <div class="offer-container"></div>
+    </div>
   </div>
 
+
+  <script>
+    // Add event listener for the filter input
+    document.getElementById("filter-input").addEventListener("input", filterMountainNames);
+  </script>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+  <script type="module" src="../projects/js/firebase.js"></script>
 
 
 
@@ -198,45 +171,12 @@
           
 
           <!-- Latest posts -->
-          <h2><a href="/blog/" style="color: inherit;">latest posts</a></h2>
-          <div class="news">
-            <div class="table-responsive">
-              <table class="table table-sm table-borderless">
-              
-                <tr>
-                  <th scope="row">Apr 26, 2023</th>
-                  <td>
-                    <a class="news-title" href="/blog/2023/giscus-comments/">Neue Kategorie "Berführer finden"</a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Mar 28, 2023</th>
-                  <td>
-                    <a class="news-title" href="/blog/2023/news-1/">100+ Anmeldungen</a>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
+          
 
           <!-- Selected papers -->
           
 
           <!-- Social -->
-            <div class="social">
-              <div class="contact-icons">
-                <a href="mailto:%67%69%70%66%65%6C%73%74%75%65%72%6D%65%72%61%70%70@%67%6D%61%69%6C.%63%6F%6D" title="email"><i class="fas fa-envelope"></i></a>
-            
-
-              </div>
-
-              <div class="contact-note">
-                E-Mail: gipfelstuermerapp@gmail.com
-
-              </div>
-
-            </div>
         </article>
 
 </div>
