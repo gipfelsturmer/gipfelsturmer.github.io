@@ -4,7 +4,7 @@ title: App
 permalink: /app/
 description: Der Link zur Gipfelstürmer App
 nav: true
-nav_order: 5
+nav_order: 2
 display_categories:
 horizontal: false
 ---

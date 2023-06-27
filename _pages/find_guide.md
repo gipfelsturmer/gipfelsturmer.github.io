@@ -1,12 +1,12 @@
 ---
-layout: page
+layout: about
 title: Guide finden
-permalink: /find_guide/
-description:
-nav: true
-nav_order: 3
-display_categories:
-horizontal: false
+permalink: /
+subtitle:
+news: False  # includes a list of news items
+latest_posts: false  # includes a list of the newest posts
+selected_papers: False # includes a list of papers marked as "selected={true}"
+social: false  # includes social icons at the bottom of the page
 ---
 
 <html>
