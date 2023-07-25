@@ -7,6 +7,7 @@ function uploadMountainGuide() {
       event.preventDefault();
 
       // Get the user's input values
+      var code = document.getElementById("code").value;
       var elementName = document.getElementById("mountain-name").value;
       var guideName = document.getElementById("guide-name").value;
       var costOne = parseInt(document.getElementById("cost-one").value);
@@ -111,6 +112,10 @@ function getAndDisplayData() {
             costFour.textContent = 'Preis (4 Personen): ' + guide.price_four_person + ' EUR';
             offer.appendChild(costFour);
           }
+
+          var numDays = document.createElement('p');
+          numDays.textContent = 'Dauer der Tour: ' + guide.days;
+          offer.appendChild(numDays);
 
           var hutIncluded = document.createElement('p');
           hutIncluded.textContent = 'Hütte inklusive: ' + (guide.hut ? 'Ja' : 'Nein');

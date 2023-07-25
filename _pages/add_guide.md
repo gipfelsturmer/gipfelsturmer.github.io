@@ -19,6 +19,9 @@ horizontal: false
   
   <h2></h2>
   <form id="create-form">
+    <label for="code">Code von Gipfelstürmer:</label>
+    <input type="text" id="code" required>
+    <br><br>
     <label for="mountain-name">Berg Name:</label>
     <input type="text" id="mountain-name" required>
     <br><br>
