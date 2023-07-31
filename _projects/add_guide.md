@@ -41,8 +41,6 @@ category:
     <label for="hut">Hütte inklusive:</label>
     <input type="checkbox" id="hut">
     <br><br>
-    <label for="certified">Staatlich geprüfter Bergführer:</label>
-    <input type="checkbox" id="certified">
     <br><br>
     <label for="url">Website link (URL):</label>
     <input type="text" id="url" required>
