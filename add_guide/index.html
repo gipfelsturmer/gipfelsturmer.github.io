@@ -56,7 +56,7 @@
   </head>
 
   <!-- Body -->
-  <body class="fixed-top-nav ">
+  <body class="fixed-top-nav sticky-bottom-footer">
 
     <!-- Header -->
     <header>
@@ -129,49 +129,74 @@
             
 
   <title>Bergführer hinzufügen</title>
+  <link rel="stylesheet" type="text/css" href="../projects/css/style.css">
+
 
 
 
   <script type="text/javascript" src="../projects/js/functions.js"></script>
   
-  <h2></h2>
-  <form id="create-form">
-    <label for="code">Code von Gipfelstürmer:</label>
-    <input type="text" id="code" required="">
-    <br><br>
-    <label for="mountain-name">Berg Name:</label>
-    <input type="text" id="mountain-name" required="">
-    <br><br>
-    <label for="guide-name">Name Bergschule / Bergführer:</label>
-    <input type="text" id="guide-name" required="">
-    <br><br>
-    <label for="cost-one">Preis für 1 Person:</label>
-    <input type="number" id="cost-one" required="">
-    <br><br>
-    <label for="cost-two">Preis für 2 Personen:</label>
-    <input type="number" id="cost-two" required="">
-    <br><br>
-    <label for="cost-three">Preis für 3 Personen:</label>
-    <input type="number" id="cost-three" required="">
-    <br><br>
-    <label for="cost-four">Preis für 4 Personen:</label>
-    <input type="number" id="cost-four" required="">
-    <br><br>
-    <label for="num-days">Wie viele Tage?:</label>
-    <input type="number" id="num-days" required="">
-    <br><br>
-    <label for="hut">Hütte inklusive:</label>
-    <input type="checkbox" id="hut">
-    <br><br>
-    <label for="certified">Staatlich geprüfter Bergführer:</label>
-    <input type="checkbox" id="certified">
-    <br><br>
-    <label for="url">Website link (URL):</label>
-    <input type="text" id="url" required="">
-    <br><br>
+  <form id="create-form" class="modern-form">
+    <fieldset>
+      <legend>Bergführer hinzufügen</legend>
+      <div class="form-group">
+        <label for="code">Gipfelstürmer Code (kontaktiere uns bei Interesse):</label>
+        <input type="text" id="code">
+        <span id="error-message" style="color: red; display: none;">Falscher Code</span>
+        <input type="hidden" id="correct-code" value="Bester-Bergführer">
+      </div>
 
-    <button type="submit" onclick="uploadMountainGuide()">Bergführer hinzufügen</button>
+      <div class="form-group">
+        <label for="mountain-name">Berg Name:</label>
+        <input type="text" id="mountain-name">
+      </div>
+
+      <div class="form-group">
+        <label for="guide-name">Name Bergschule / Bergführer:</label>
+        <input type="text" id="guide-name">
+      </div>
+
+      <div class="form-group">
+        <label for="cost-one">Preis für 1 Person:</label>
+        <input type="number" id="cost-one">
+      </div>
+
+      <div class="form-group">
+        <label for="cost-two">Preis für 2 Personen:</label>
+        <input type="number" id="cost-two">
+      </div>
+
+      <div class="form-group">
+        <label for="cost-three">Preis für 3 Personen:</label>
+        <input type="number" id="cost-three">
+      </div>
+
+      <div class="form-group">
+        <label for="cost-four">Preis für 4 Personen:</label>
+        <input type="number" id="cost-four">
+      </div>
+
+      <div class="form-group">
+        <label for="num-days">Wie viele Tage?:</label>
+        <input type="number" id="num-days">
+      </div>
+
+      <div class="form-group">
+        <label for="hut">Hütte inklusive:</label>
+        <input type="checkbox" id="hut">
+      </div>
+
+      <div class="form-group">
+        <label for="url">Website link (URL):</label>
+        <input type="text" id="url" required="" placeholder="https://www.example.de">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" onclick="uploadMountainGuide()">Bergführer hinzufügen</button>
+      </div>
+    </fieldset>
   </form>
+
   
   <!-- Firebase SDK -->
   <script type="module" src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
@@ -189,9 +214,8 @@
       
     </div>
 
-    <!-- Footer -->    
-    <footer class="fixed-bottom">
-      <div class="container mt-0">
+    <!-- Footer -->    <footer class="sticky-bottom mt-5">
+      <div class="container">
         © Copyright 2023 Gipfelstürmer  . Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>.
 <a href="https://gipfelsturmer.github.io/impressum/">Impressum</a>.<a href="https://gipfelsturmer.github.io/datenschutz/">Datenschutz</a>.
       </div>

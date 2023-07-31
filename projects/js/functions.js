@@ -2,6 +2,24 @@ function uploadMountainGuide() {
     // Get a reference to the Firestore database
     var db = firebase.firestore();
 
+    // Get the user's input values
+    var enteredCode = document.getElementById("code").value;
+    var correctCode = document.getElementById("correct-code").value;
+
+    if (enteredCode !== correctCode) {
+      // Display an error message and return to prevent form submission
+      document.getElementById("error-message").style.display = "block";
+      document.getElementById("code").classList.add("error");
+      document.getElementById("code").value = "";
+      alert("Falscher Code. Bitte kontaktiere uns unter: gipfelstuermerapp@gmail.com");
+      event.preventDefault();
+      return;
+    } else {
+      // Hide the error message in case it was displayed previously
+      document.getElementById("error-message").style.display = "none";
+      document.getElementById("code").classList.remove("error");
+    }
+
     // Function to handle form submission
     document.getElementById("create-form").addEventListener("submit", function(event) {
       event.preventDefault();
@@ -84,6 +102,11 @@ function getAndDisplayData() {
           var offer = document.createElement('div');
           offer.classList.add('offer');
 
+          var guideImage = document.createElement('img');
+          guideImage.src = 'https://storage.googleapis.com/gipfelstuermer-6b1ca.appspot.com/4000er_pictures/dom.JPG'; // Replace 'guide.image_url' with the actual URL of the image for the guide
+          //guideImage.alt = guide.name; // Set the alt attribute to provide a description for the image (guide name in this case)
+          offer.appendChild(guideImage);
+
           var guideName = document.createElement('p');
           guideName.textContent = guide.name;
           guideName.classList.add('guide-name');
@@ -146,12 +169,13 @@ function getAndDisplayData() {
         container.appendChild(offerContainer);
         mountainContainer.appendChild(container);
       });
-      document.body.appendChild(mountainContainer);
+      //document.body.appendChild(mountainContainer);
     })
     .catch(function(error) {
       console.error('Error getting documents: ', error);
     });
 }
+
   
 function filterMountainNames() {
   var filterInput = document.getElementById("filter-input");
@@ -167,4 +191,31 @@ function filterMountainNames() {
       container.style.display = "none";
     }
   });
+}
+
+function validateCodeAndSubmit(event) {
+  // Get references to the elements
+  const codeInput = document.getElementById("code");
+  const correctCode = document.getElementById("correct-code").value;
+  const errorMessage = document.getElementById("error-message");
+
+  // Function to check if the code is correct
+  function checkCode() {
+    if (codeInput.value === correctCode) {
+      errorMessage.style.display = "none";
+      return true; // Return true to allow form submission
+    } else {
+      errorMessage.style.display = "block";
+      return false; // Return false to prevent form submission
+    }
+  }
+
+  // Attach an event listener to the "code" input field to check the code on input change
+  codeInput.addEventListener("input", checkCode);
+
+  // Initial validation on page load
+  return checkCode(); // Validate on page load
+
+  // You can also call the uploadMountainGuide() function here if needed
+  uploadMountainGuide();
 }

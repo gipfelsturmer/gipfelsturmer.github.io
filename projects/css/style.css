@@ -43,6 +43,13 @@
   background-color: #d3e8f5;
 }
 
+/* styles.css */
+.offer img {
+  width: 300px; /* Adjust the width to your desired size */
+  height: 300px; /* Adjust the height to your desired size */
+}
+
+
 .offer p {
   color: #666;
 }
@@ -65,5 +72,88 @@
 .offer button:hover {
   background-color: dodgerblue;
 }
+
+.error {
+  border: 1px solid red; /* Add a red border to the input field */
+}
+
+/* css for add_guide */
+
+/* Reset some default styles for the form */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for the form container */
+.modern-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Styling for the fieldset */
+.modern-form fieldset {
+  border: none;
+}
+
+/* Styling for the legend */
+.modern-form legend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styling for form labels */
+.modern-form label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Styling for form input elements */
+.modern-form input[type="text"],
+.modern-form input[type="number"],
+.modern-form input[type="checkbox"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Styling for the submit button */
+.modern-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modern-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Styling for checkboxes */
+.modern-form input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Additional styles for responsiveness (adjust as needed) */
+@media screen and (max-width: 600px) {
+  .modern-form {
+    max-width: 100%;
+  }
+}
+
 
 
