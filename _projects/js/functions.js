@@ -1,6 +1,26 @@
+function disableAndExecute() {
+  // Disable the button when clicked
+  document.getElementById("upload-button").disabled = true;
+
+  // Call your functions here (uploadImage and storeHeight)
+  uploadMountainGuide();
+
+  // Re-enable the button after 5 seconds
+  setTimeout(function () {
+    document.getElementById("upload-button").disabled = false;
+  }, 5000);
+}
+
+
 function uploadMountainGuide() {
+
+    // Disable the upload button
+    document.getElementById("upload-button").disabled = true;
+
     // Get a reference to the Firestore database
     var db = firebase.firestore();
+
+    var storage = firebase.storage();
 
     // Get the user's input values
     var enteredCode = document.getElementById("code").value;
@@ -21,7 +41,7 @@ function uploadMountainGuide() {
     }
 
     // Function to handle form submission
-    document.getElementById("create-form").addEventListener("submit", function(event) {
+    document.getElementById("create-form").addEventListener("submit", function (event) {
       event.preventDefault();
 
       // Get the user's input values
@@ -35,45 +55,89 @@ function uploadMountainGuide() {
       var numDays = parseInt(document.getElementById("num-days").value);
       var hut = document.getElementById("hut").checked;
       var url = document.getElementById("url").value;
-      
+
       var name_id = elementName.toLowerCase().replace(/\s/g, '_');
 
-      // Set the data for the document
-      db.collection('mountains_bergfuehrer').doc(name_id).set(
-        {normalroute: 
-          {
-          name: elementName,
-          mountain_id: name_id,
-          route_id: "normalroute",
-          glacier_average_difficulty: 3,
-          climbing_average_difficulty: 3,
-          overall_average_difficulty: 3,
-          description: " ",
-          mountain_guides: firebase.firestore.FieldValue.arrayUnion(
-            {
-              name: guideName,
-              price_one_person: costOne,
-              price_two_person: costTwo,
-              price_three_person: costThree,
-              price_four_person: costFour,
-              days: numDays,
-              hut: hut,
-              url: url
-            })
-          }
-      },
-      { merge: true }
-      )
-      .then(function() {
-        // console.log("Document successfully written!");
-        alert("Bergführer erfolgreich hinzugefügt!");
-        // Reset form inputs after successful submission
-        document.getElementById("create-form").reset();
-      })
-      .catch(function(error) {
-        console.error("Error writing document: ", error);
-      });
-    });
+      // Get the file input element
+      var fileInput = document.getElementById("image-file");
+
+      // Get the selected file
+      var file = fileInput.files[0];
+
+      // Generate a random number between 1 and 100000 (adjust as needed)
+      var randomCounter = Math.floor(Math.random() * 100000) + 1;
+
+      // Create a storage reference for the image file
+      var storageRef = storage.ref().child("mountain_guide_images/" + elementName + "_" + guideName + "_" + randomCounter.toString());
+
+      // Upload the file to Firebase Storage
+      var uploadTask = storageRef.put(file);
+
+      // Monitor the upload progress (optional)
+      uploadTask.on(
+        "state_changed",
+        function (snapshot) {
+          // Observe the state change (optional)
+          // You can use this to show upload progress if needed
+          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+        },
+        function (error) {
+          // Handle unsuccessful uploads
+          console.error("Error uploading image: ", error);
+        },
+        function () {
+          // Handle successful uploads
+          // Get the download URL of the uploaded image
+          uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+            // Set the data for the document including the download URL
+            db.collection("mountains_bergfuehrer")
+              .doc(name_id)
+              .set(
+                {
+                  normalroute: {
+                    name: elementName,
+                    mountain_id: name_id,
+                    route_id: "normalroute",
+                    glacier_average_difficulty: 3,
+                    climbing_average_difficulty: 3,
+                    overall_average_difficulty: 3,
+                    description: " ",
+                    mountain_guides: firebase.firestore.FieldValue.arrayUnion(
+                      {
+                        name: guideName,
+                        price_one_person: costOne,
+                        price_two_person: costTwo,
+                        price_three_person: costThree,
+                        price_four_person: costFour,
+                        days: numDays,
+                        hut: hut,
+                        image_url: downloadURL, // Save the download URL in the document
+                        url: url
+                      })
+                    }
+                  },
+                { merge: true }
+              )
+              .then(function () {
+                alert("Bergführer erfolgreich hinzugefügt!");
+                document.getElementById("create-form").reset();
+                location.reload();
+              })
+              .catch(function (error) {
+                console.error("Error writing document: ", error);
+              });
+
+              // here new
+              // Re-enable the upload button after 5 seconds
+              setTimeout(function () {
+                document.getElementById("upload-button").disabled = false;
+              }, 5000); // 5000 milliseconds = 5 seconds
+              // until here new
+          });
+        }
+      );
+    })
 }
 
 
@@ -103,8 +167,8 @@ function getAndDisplayData() {
           offer.classList.add('offer');
 
           var guideImage = document.createElement('img');
-          guideImage.src = 'https://storage.googleapis.com/gipfelstuermer-6b1ca.appspot.com/4000er_pictures/dom.JPG'; // Replace 'guide.image_url' with the actual URL of the image for the guide
-          //guideImage.alt = guide.name; // Set the alt attribute to provide a description for the image (guide name in this case)
+          guideImage.src = guide.image_url;
+          guideImage.alt = guide.name;
           offer.appendChild(guideImage);
 
           var guideName = document.createElement('p');
@@ -191,31 +255,4 @@ function filterMountainNames() {
       container.style.display = "none";
     }
   });
-}
-
-function validateCodeAndSubmit(event) {
-  // Get references to the elements
-  const codeInput = document.getElementById("code");
-  const correctCode = document.getElementById("correct-code").value;
-  const errorMessage = document.getElementById("error-message");
-
-  // Function to check if the code is correct
-  function checkCode() {
-    if (codeInput.value === correctCode) {
-      errorMessage.style.display = "none";
-      return true; // Return true to allow form submission
-    } else {
-      errorMessage.style.display = "block";
-      return false; // Return false to prevent form submission
-    }
-  }
-
-  // Attach an event listener to the "code" input field to check the code on input change
-  codeInput.addEventListener("input", checkCode);
-
-  // Initial validation on page load
-  return checkCode(); // Validate on page load
-
-  // You can also call the uploadMountainGuide() function here if needed
-  uploadMountainGuide();
 }
