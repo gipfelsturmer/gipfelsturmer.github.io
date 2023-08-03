@@ -20,6 +20,18 @@ social: false  # includes social icons at the bottom of the page
   <body>
 
     <input type="text" id="filter-input" placeholder="Nach Berg suchen...">
+    <br>
+    <div>
+      <br>
+      <label for="numPersons">Select number of persons:</label>
+      <select id="numPersons" onchange="getAndDisplayData()">
+        <option value="1">1 person</option>
+        <option value="2">2 persons</option>
+        <option value="3">3 persons</option>
+        <option value="4">4 persons</option>
+      </select>
+    </div>
+
 
     <div id="mountain-container">
       <div class="offer-container-wrapper">

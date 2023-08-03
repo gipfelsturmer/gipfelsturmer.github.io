@@ -140,13 +140,16 @@ function uploadMountainGuide() {
     })
 }
 
-
 function getAndDisplayData() {
   var db = firebase.firestore();
   var mountainContainer = document.getElementById('mountain-container');
+  var numPersonsSelect = document.getElementById('numPersons');
+  var selectedNumPersons = parseInt(numPersonsSelect.value);
 
   db.collection('mountains_bergfuehrer').get()
     .then(function(querySnapshot) {
+      mountainContainer.innerHTML = ''; // Clear the existing content
+
       querySnapshot.forEach(function(doc) {
         var mountain = doc.data().normalroute;
         var guides = mountain.mountain_guides;
@@ -176,25 +179,24 @@ function getAndDisplayData() {
           guideName.classList.add('guide-name');
           offer.appendChild(guideName);
 
-          if (guide.price_one_person !== -1) {
+          // Now, let's filter the displayed prices based on the selectedNumPersons
+          if (selectedNumPersons === 1 && guide.price_one_person !== -1) {
+            // Display only the price for 1 person
             var costOne = document.createElement('p');
             costOne.textContent = 'Preis (1 Person): ' + guide.price_one_person + ' EUR';
             offer.appendChild(costOne);
-          }
-
-          if (guide.price_two_person !== -1) {
+          } else if (selectedNumPersons === 2 && guide.price_two_person !== -1) {
+            // Display only the price for 2 persons
             var costTwo = document.createElement('p');
             costTwo.textContent = 'Preis (2 Personen): ' + guide.price_two_person + ' EUR';
             offer.appendChild(costTwo);
-          }
-
-          if (guide.price_three_person !== -1) {
+          } else if (selectedNumPersons === 3 && guide.price_three_person !== -1) {
+            // Display only the price for 3 persons
             var costThree = document.createElement('p');
             costThree.textContent = 'Preis (3 Personen): ' + guide.price_three_person + ' EUR';
             offer.appendChild(costThree);
-          }
-
-          if (guide.price_four_person !== -1) {
+          } else if (selectedNumPersons === 4 && guide.price_four_person !== -1) {
+            // Display only the price for 4 persons
             var costFour = document.createElement('p');
             costFour.textContent = 'Preis (4 Personen): ' + guide.price_four_person + ' EUR';
             offer.appendChild(costFour);
@@ -233,7 +235,6 @@ function getAndDisplayData() {
         container.appendChild(offerContainer);
         mountainContainer.appendChild(container);
       });
-      //document.body.appendChild(mountainContainer);
     })
     .catch(function(error) {
       console.error('Error getting documents: ', error);
