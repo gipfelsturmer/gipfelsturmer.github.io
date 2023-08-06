@@ -77,6 +77,42 @@
   border: 1px solid red; /* Add a red border to the input field */
 }
 
+#search-input-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*height: 100vh;*/ /* Optional: If you want to center it vertically on the page */
+}
+
+#search-input-container2 {
+  display: flex;
+  gap: 10px; /* Adjust the value as per your preference to control the space between elements */
+  align-items: center; /* Vertically align the items */
+  background-color: #f1c534; /* Add a background color for a more modern look */
+  padding: 10px; /* Add some padding for a cleaner look */
+  border-radius: 5px; /* Apply rounded corners for a modern appearance */
+  margin: 0 auto;
+  max-width: 700px; /* Optional: Set a maximum width for the container */
+}
+
+#filter-input {
+  flex: 1; /* Allow the search input to take up the available space */
+  border: none;
+  padding: 8px;
+  border-radius: 5px; /* Apply rounded corners for a modern appearance */
+  outline: none;
+}
+
+label {
+  margin-right: 8px;
+}
+
+select {
+  padding: 8px;
+  border-radius: 5px; /* Apply rounded corners for a modern appearance */
+}
+
+
 /* css for add_guide */
 
 /* Reset some default styles for the form */

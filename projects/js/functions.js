@@ -203,7 +203,7 @@ function getAndDisplayData() {
           }
 
           var numDays = document.createElement('p');
-          numDays.textContent = 'Dauer der Tour: ' + guide.days;
+          numDays.textContent = 'Dauer der Tour: ' + guide.days + ' Tage';
           offer.appendChild(numDays);
 
           var hutIncluded = document.createElement('p');
@@ -216,7 +216,7 @@ function getAndDisplayData() {
             detailsButton.style.backgroundColor = 'lightblue';
             detailsButton.addEventListener('click', function() {
               // Redirect to the offer.html page passing any necessary information
-              window.location.href = 'offer.html';
+              window.location.href = 'offer';
             });
             offer.appendChild(detailsButton);
 

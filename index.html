@@ -139,20 +139,20 @@
   <script type="text/javascript" src="../projects/js/functions.js"></script>
 
   
-
-    <input type="text" id="filter-input" placeholder="Nach Berg suchen...">
-    <br>
-    <div>
-      <br>
-      <label for="numPersons">Select number of persons:</label>
-      <select id="numPersons" onchange="getAndDisplayData()">
-        <option value="1">1 person</option>
-        <option value="2">2 persons</option>
-        <option value="3">3 persons</option>
-        <option value="4">4 persons</option>
-      </select>
+    <div id="search-input-container1">
+      <div id="search-input-container2">
+        <input type="text" id="filter-input" placeholder="Nach Berg suchen...">
+        <label for="numPersons">Wähle die Anzahl der Personen:</label>
+        <select id="numPersons" onchange="getAndDisplayData()">
+          <option value="1">1 Person</option>
+          <option value="2">2 Personen</option>
+          <option value="3">3 Personen</option>
+          <option value="4">4 Personen</option>
+        </select>
+      </div>
     </div>
 
+    <br>
 
     <div id="mountain-container">
       <div class="offer-container-wrapper">
