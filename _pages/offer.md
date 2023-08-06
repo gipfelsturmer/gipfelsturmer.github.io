@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Spezielles Angebot
-permalink: /find_guide/offer
+permalink: /offer/
 description:
 nav: false
 nav_order:
