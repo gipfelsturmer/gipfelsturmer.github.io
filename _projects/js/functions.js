@@ -55,6 +55,7 @@ function uploadMountainGuide() {
       var numDays = parseInt(document.getElementById("num-days").value);
       var hut = document.getElementById("hut").checked;
       var url = document.getElementById("url").value;
+      var detailed_description = document.getElementById("detailed-description").value
 
       var name_id = elementName.toLowerCase().replace(/\s/g, '_');
 
@@ -113,7 +114,8 @@ function uploadMountainGuide() {
                         days: numDays,
                         hut: hut,
                         image_url: downloadURL, // Save the download URL in the document
-                        url: url
+                        url: url,
+                        detailed_description: detailed_description
                       })
                     }
                   },
@@ -212,13 +214,15 @@ function getAndDisplayData() {
 
 
           var detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Details';
-            detailsButton.style.backgroundColor = 'lightblue';
-            detailsButton.addEventListener('click', function() {
-              // Redirect to the offer.html page passing any necessary information
-              window.location.href = 'offer';
-            });
-            offer.appendChild(detailsButton);
+          detailsButton.textContent = 'Details';
+          detailsButton.style.backgroundColor = 'lightblue';
+          detailsButton.addEventListener('click', function() {
+            localStorage.setItem('selectedMountain', JSON.stringify(guide));
+            localStorage.setItem('selectedNumPersons', selectedNumPersons);
+            // Redirect to the offer.html page passing any necessary information
+            window.location.href = 'offer';
+          });
+          offer.appendChild(detailsButton);
 
           var urlButton = document.createElement('button');
           urlButton.textContent = 'Buchen';

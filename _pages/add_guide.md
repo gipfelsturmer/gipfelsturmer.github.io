@@ -74,10 +74,14 @@ horizontal: false
         <input type="file" id="image-file">
       </div>
 
-
       <div class="form-group">
         <label for="url">Website link (URL):</label>
         <input type="text" id="url" required placeholder="https://www.example.de">
+      </div>
+
+      <div class="form-group">
+        <label for="detailed-description">Beschreibung:</label>
+        <input type="text" id="detailed-description">
       </div>
 
       <div class="form-group">
