@@ -81,8 +81,9 @@ horizontal: false
 
       <div class="form-group">
         <label for="detailed-description">Beschreibung:</label>
-        <input type="text" id="detailed-description">
+        <textarea id="detailed-description" rows="4" style="width: 100%;" placeholder="Optional: Eine Beschreibung der Tour..."></textarea>
       </div>
+
 
       <div class="form-group">
         <button type="submit" onclick="disableAndExecute()" id="upload-button">Bergführer hinzufügen</button>
